@@ -16,7 +16,24 @@
     font-size: 2rem;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+    /* background-color: red; */
+    margin-top: auto;
+    margin-bottom: auto;
    
   }
+
+  .home--title {
+    font-size: 3rem;
+  }
+
+  .home--subtitle {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  
 }

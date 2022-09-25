@@ -1,14 +1,23 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
-const NavBar: NextPage = () => {
+const NavBar: NextPage = (props) => {
   return (
     <nav>
-      <div className="navBar flex justify-between items-center">
+      <div className="navBar flex justify-between items-center border-b-[1px] border-[#e6e5e5]">
         <div className="flex items-center">
           <div className="mr-10">
             <Link href="/">
-              <div className="icon--logo">Logo</div>
+              <div className="icon--logo">
+                <Image
+                  loader={myLoader}
+                  src="me.png"
+                  alt="Picture of the author"
+                  width={60}
+                  height={45}
+                />
+              </div>
             </Link>
           </div>
 
@@ -32,6 +41,10 @@ const NavBar: NextPage = () => {
       </div>
     </nav>
   );
+};
+
+const myLoader = ({ src, width, quality }: any) => {
+  return "/assets/logoGreen.png";
 };
 
 export default NavBar;

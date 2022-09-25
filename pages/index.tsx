@@ -48,8 +48,22 @@ const Home: NextPage = () => {
     <div>
       <div className="totalPageHome">
         <div className="header-homePage">
-          <br />
-          Olá! Seja bem vindo
+          <p className="home--title">Olá! Seja bem vindo!</p>
+          <p className="home--subtitle my-4">
+            Esta é uma rede social dedicada a amantes da natureza que querem
+            fazer a diferença no mundo.
+            <br />
+            Você é um deles?
+          </p>
+          <div>
+            <br />
+            <button className="rounded-full text-[1.8rem]  bg-[#FF9900] hover:[#df8703 ] text-[white] mx-3 px-5 py-1 hover:bg-[#da8402] duration-300">
+              CADASTRAR
+            </button>
+            <button className="rounded-full text-[1.8rem]  bg-[#04D361] text-[white] mx-3 px-5 py-1 hover:bg-[#01b653] duration-300 ">
+              FAZER LOGIN
+            </button>
+          </div>
         </div>
       </div>
     </div>
