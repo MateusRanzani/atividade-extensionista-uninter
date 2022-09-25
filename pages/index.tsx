@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
-import { useSession } from "next-auth/react";
-
-import { useEffect, useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useState } from "react";
 import api from "../utils/api";
 
 interface Teacher {
@@ -46,6 +45,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
+      <>{console.log(useSession)}</>
       <div className="totalPageHome">
         <div className="header-homePage">
           <p className="home--title">Olá! Seja bem vindo!</p>
@@ -57,10 +57,16 @@ const Home: NextPage = () => {
           </p>
           <div>
             <br />
-            <button className="rounded-full text-[1.8rem]  bg-[#FF9900] hover:[#df8703 ] text-[white] mx-3 px-5 py-1 hover:bg-[#da8402] duration-300">
+            <button
+              onClick={() => signIn("auth0")}
+              className="rounded-full text-[1.8rem]  bg-[#FF9900] hover:[#df8703 ] text-[white] mx-3 px-5 py-1 hover:bg-[#da8402] duration-300"
+            >
               CADASTRAR
             </button>
-            <button className="rounded-full text-[1.8rem]  bg-[#04D361] text-[white] mx-3 px-5 py-1 hover:bg-[#01b653] duration-300 ">
+            <button
+              onClick={() => signIn("auth0")}
+              className="rounded-full text-[1.8rem]  bg-[#04D361] text-[white] mx-3 px-5 py-1 hover:bg-[#01b653] duration-300 "
+            >
               FAZER LOGIN
             </button>
           </div>

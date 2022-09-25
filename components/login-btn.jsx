@@ -9,6 +9,10 @@ export default function Component() {
 
   return (
     <>
+      <button onClick={() => signOut()}>Sign out</button>
+      <button onClick={() => signIn("auth0")} className="px-4 py-1 text-sm   ">
+        Login
+      </button>
       <div className="flex justify-center items-center ...">
         {!session && (
           <div className="flex justify-center items-center ...">

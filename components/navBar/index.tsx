@@ -1,8 +1,12 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 const NavBar: NextPage = (props) => {
+  const { data: session, status } = useSession();
+
   return (
     <nav>
       <div className="navBar flex justify-between items-center border-b-[1px] border-[#e6e5e5]">
@@ -32,12 +36,24 @@ const NavBar: NextPage = (props) => {
             </Link>
           </div>
         </div>
-        <div></div>
-        <div>
-          <Link href="/profile">
-            <a className="login--button">LOGIN</a>
-          </Link>
-        </div>
+        {!session && (
+          <div>
+             <Link href="/profile">
+              <a className="login--button" onClick={() => signIn("auth0")}>
+                LOGIN
+              </a>
+              </Link>
+          </div>
+        )}
+        {session && (
+          <div>
+             <Link href="/profile">
+              <a className="text-[#DF3A3A]" onClick={() => signOut()}>
+                SAIR
+              </a>
+              </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
