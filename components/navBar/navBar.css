@@ -6,7 +6,13 @@
 }
 
 .navBar {
+  background-color: white;
+
   padding: 0.5rem 3rem;
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  z-index: 9999;
 }
 
 a.--button {
