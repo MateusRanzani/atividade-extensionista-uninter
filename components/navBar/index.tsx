@@ -11,7 +11,7 @@ const NavBar: NextPage = (props) => {
     <nav>
       <div className="navBar flex justify-between items-center border-b-[1px] border-[#e6e5e5]">
         <div className="flex items-center">
-          <div className="mr-10">
+          <div >
             <Link href="/">
               <div className="icon--logo">
                 <Image

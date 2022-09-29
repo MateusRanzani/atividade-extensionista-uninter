@@ -1,19 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+@media only screen and (max-width: 699px) {
+  .navBar {
+    background-color: white;
+
+    height: 4rem;
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+  }
+
+  .icon--logo {
+    cursor: pointer;
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 3rem;
+    width: 3rem;
+
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+}
+
+@media only screen and (min-width: 700px) {
+  .navBar {
+    background-color: white;
+  
+    padding: 0.5rem 3rem;
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+  }
+
+  .icon--logo {
+    cursor: pointer;
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 2rem;
+}
+}
 
 * {
     font-family: 'Poppins', sans-serif;
 }
 
-.navBar {
-  background-color: white;
 
-  padding: 0.5rem 3rem;
-  width: 100vw;
-  display: flex;
-  position: fixed;
-  z-index: 9999;
-}
 
 a.--button {
   font-weight: 600;
@@ -39,11 +80,3 @@ a.login--button:hover {
   background-color: #01b653;
 }
 
-.icon--logo {
-    cursor: pointer;
-    border-radius: 50px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

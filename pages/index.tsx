@@ -110,59 +110,26 @@ const Home: NextPage = () => {
 
       <div className="projectInformation--index">
         <div className="informationLeftSide--index">
-          <svg
-            className="imageSvg "
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-            </mask>
-
-            <g mask="url(#mask0)">
-              <path
-                fill="#FF0066"
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-              <image
-                className="my-img"
-                x="0"
-                y="0"
-                href="https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/10/queimadas-florestais.jpg"
-              />
-            </g>
-          </svg>
-
-          <svg
-            className="svgBlobMiniature flex absolute"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-            </mask>
-
-            <g mask="url(#mask0)">
-              <path
-                fill="#FF0066"
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-              <image
-                className="my-img-blobMiniature"
-                x="25"
-                y="40"
-                href="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/queimadas-incendio-fogo-pantanal-32.jpg?w=1900&h=1269"
-              />
-            </g>
-          </svg>
+          <div style={{ height: "fit-content", display: "inline-flex" }}>
+            <img
+              src="/assets/homePage/image1.svg"
+              alt=""
+              style={{ width: "25rem" }}
+            />
+            <img
+              className="svgBlobMiniature flex absolute"
+              src="/assets/homePage/image2.svg"
+              alt=""
+              style={{
+                width: "25%",
+                height: "52%",
+                position: "absolute",
+                bottom: "0rem",
+                right: "8rem",
+                display: "inline-block",
+              }}
+            />
+          </div>
         </div>
 
         <div className="informationRigthSide--index text-center">
@@ -190,113 +157,42 @@ const Home: NextPage = () => {
         </div>
 
         <div className="informationRigthSide-two--index ">
-          <svg
-            className="imageSvg "
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-            </mask>
+          <div style={{ height: "fit-content", display: "inline-flex" }}>
+            <img
+              src="/assets/homePage/image3.svg"
+              alt=""
+              style={{
+                width: "30rem",
+              }}
+            />
 
-            <g mask="url(#mask0)">
-              <path
-                fill="#FF0066"
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-              <image
-                className="my-img-two"
-                x="0"
-                y="40"
-                href="https://t.ctcdn.com.br/ox1C0Pc9tan1smqBlFtNZJszYrs=/1400x788/smart/i433700.jpeg"
-              />
-            </g>
-          </svg>
+            <img
+              src="/assets/homePage/image4.svg"
+              alt=""
+              style={{
+                width: "30%",
+                height: "52%",
+                position: "absolute",
+                bottom: "-0.1rem",
+                left: "-0.4rem",
+                display: "inline-block",
+              }}
+            />
 
-          <svg
-            className="svgBlobMiniature-two flex absolute"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-            </mask>
-
-            <g mask="url(#mask0)">
-              <path
-                fill="#FF0066"
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-              <image
-                className="my-img-blobMiniature"
-                x="25"
-                y="40"
-                href="https://img.freepik.com/fotos-premium/bela-natureza-no-parque-na-natureza_261642-2196.jpg"
-              />
-            </g>
-          </svg>
-
-          <svg
-            className="svgBlobMiniature-two flex absolute"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-            </mask>
-
-            <g mask="url(#mask0)">
-              <path
-                fill="#FF0066"
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-              <image
-                className="my-img-blobMiniature"
-                x="25"
-                y="40"
-                href="https://img.freepik.com/fotos-premium/bela-natureza-no-parque-na-natureza_261642-2196.jpg"
-              />
-            </g>
-          </svg>
-
-          <svg
-            className="svgBlobMiniature--two flex absolute"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask id="mask0" mask-type="alpha">
-              <path
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-            </mask>
-
-            <g mask="url(#mask0)">
-              <path
-                fill="#FF0066"
-                d="M65.5,-19.3C73.6,3.7,61.1,35.3,39.6,49.9C18,64.5,-12.6,62,-33.8,46.6C-54.9,31.2,-66.5,2.9,-59.3,-18.9C-52.1,-40.7,-26.1,-55.9,1.3,-56.3C28.7,-56.8,57.4,-42.4,65.5,-19.3Z"
-                transform="translate(100 100)"
-              />
-              <image
-                className="my-img-blobMiniature"
-                x="25"
-                y="40"
-                href="https://s1.1zoom.me/big0/994/260356-svetik.jpg"
-              />
-            </g>
-          </svg>
+            <img
+              src="/assets/homePage/image5.svg"
+              className="svgBlobMiniature--two flex absolute"
+              alt=""
+              style={{
+                width: "30%",
+                height: "52%",
+                position: "absolute",
+                top: "-0.1rem",
+                right: "1rem",
+                display: "inline-block",
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
