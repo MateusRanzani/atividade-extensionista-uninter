@@ -44,8 +44,8 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div>
-      <div className="headerHomePage">
+    <div className="contentAllPage">
+      <div className="headerHomePage" >
         <div className="header-homePage">
           <p className="home--title">Olá! Seja bem vindo!</p>
           <p className="home--subtitle my-4">
@@ -108,7 +108,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="projectInformation--index">
+      <div className="projectInformation--index1">
         <div className="informationLeftSide--index">
           <div style={{ height: "fit-content", display: "inline-flex" }}>
             <img
@@ -145,7 +145,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="projectInformation--index">
+      <div className="projectInformation--index2">
         <div className="informationLeftSide-two--index flex items-center text-center ">
           O objetivo deste projeto é de utilizar a tecnologia como uma aliada na
           conscientização sobre as mudanças climáticas, assim como possibilitar

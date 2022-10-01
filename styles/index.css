@@ -117,8 +117,14 @@
 }
 
 @media only screen and (min-width: 700px) {
+  .contentAllPage {
+    max-width: 1300px;
+    margin: auto;
+  }
+
   .headerHomePage {
     height: calc(100vh);
+    max-height: 720px;
     display: flex;
     flex-direction: column;
     padding: 0 3rem;
@@ -149,9 +155,17 @@
     font-size: 1rem;
   }
 
-  .projectInformation--index {
+  .projectInformation--index1 {
     /* margin-top: 3rem; */
     height: calc(100vh - 61.63px);
+    max-height: 720px;
+    display: flex;
+  }
+
+  .projectInformation--index2 {
+    /* margin-top: 3rem; */
+    height: calc(100vh - 61.63px);
+    max-height: 720px;
     display: flex;
   }
 
