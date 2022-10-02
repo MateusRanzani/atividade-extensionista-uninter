@@ -1,18 +1,9 @@
 import type { NextPage } from "next";
-// import teste from './dataNews';
+import { NextScript } from "next/document";
 
-// const NewsComponent: NextPage = ({props}) => {
-//   return (
-//     <div className="pageNewsComponent">
-//         {teste.map(animal => (
-//         <div key={animal.name}>{animal.titulo}</div>
-//       ))}
-//     </div>
-//   );
-// };
 
 interface NewsPropsInterface {
-  news: any[];
+  news: any;
 }
 
 function NewsComponent({ news }: NewsPropsInterface) {
@@ -27,17 +18,15 @@ function NewsComponent({ news }: NewsPropsInterface) {
   };
 
   return (
-    <div className="pageNewsComponent">
-      {!isEmptyObj(news) ? (
-        <>
-          {news.map((news: any) => (
+    <div className="">
+      <div className="cardOfNew">
+       <p className="titleOfNew">{news.titulo}</p>     
+       <p className="introducaoOfNew">{news.introducao}</p>       
+      <>
+      {console.log(news)}
+      </>
 
-            <div>{news.titulo}</div>
-          ))}
-        </>
-      ) : (
-        <>xxxxxxxxxxxxxxxxxxxxxxxxxxxx</>
-      )}
+      </div>
     </div>
   );
 }

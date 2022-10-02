@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import "../styles/index.css";
 import "../styles/news.css";
 import "../components/navBar/navBar.css"
+import "../styles/newsComponent.css"
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (

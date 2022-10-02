@@ -28,9 +28,15 @@ const NewsPage: NextPage = () => {
 
   return (
     <div className="totalPageNews">
-      {/* <div className="contentNewsPage flex flex-wrap justify-center">
-        <NewsComponent news={dataNews} />
-      </div> */}
+      <div className="contentNewsPage flex flex-wrap justify-center">
+        {dataNews.map((thisNew) => {
+          return (
+            <div>
+              <NewsComponent news={thisNew} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
