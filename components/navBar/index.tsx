@@ -11,7 +11,7 @@ const NavBar: NextPage = (props) => {
     <nav>
       <div className="navBar flex justify-between items-center border-b-[1px] border-[#e6e5e5]">
         <div className="flex items-center">
-          <div >
+          <div>
             <Link href="/">
               <div className="icon--logo">
                 <Image
@@ -38,20 +38,20 @@ const NavBar: NextPage = (props) => {
         </div>
         {!session && (
           <div>
-             <Link href="/profile">
+            <Link href="/profile">
               <a className="login--button" onClick={() => signIn("auth0")}>
                 LOGIN
               </a>
-              </Link>
+            </Link>
           </div>
         )}
         {session && (
           <div>
-             <Link href="/profile">
+            <Link href="/profile">
               <a className="text-[#DF3A3A]" onClick={() => signOut()}>
                 SAIR
               </a>
-              </Link>
+            </Link>
           </div>
         )}
       </div>

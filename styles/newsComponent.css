@@ -1,5 +1,5 @@
 .cardOfNew {
-  width: 25rem;
+  width: 23rem;
   height: 15.5rem;
   margin: 0.5rem;
   padding: 0.5rem;
@@ -19,9 +19,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-
-
 
 .titleOfNew {
   height: auto;

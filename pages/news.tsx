@@ -1,43 +1,37 @@
-import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 
-import { useEffect, useState } from "react";
-import Component from "../components/login-btn";
-import Image from "next/image";
-import api from "../utils/api";
 import NewsComponent from "../components/newsComponent";
 
-const NewsPage: NextPage = () => {
-  const { data: session, status } = useSession();
-  let [dataNews, setDataNews] = useState<any[]>([]);
+export const getStaticProps = async () => {
+  const res = await fetch("http://servicodados.ibge.gov.br/api/v3/noticias/");
+  const data = await res.json();
 
-  const fetchNews = () => {
-    if (session !== undefined) {
-      api("http://servicodados.ibge.gov.br/api/v3/noticias/")
-        .then((res) => {
-          dataNews = res.data.items;
-          setDataNews(dataNews);
-        })
-        .catch((error) => {});
-    }
+  return {
+    props: {
+      news: data,
+    },
   };
+};
 
-  useEffect(() => {
-    fetchNews();
-  }, []);
+const NewsPage = ({ news }: any) => {
+  const { data: session, status } = useSession();
 
   return (
-    <div className="totalPageNews">
-      <div className="contentNewsPage flex flex-wrap justify-center">
-        {dataNews.map((thisNew) => {
-          return (
-            <div>
-              <NewsComponent news={thisNew} />
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <>
+      {session && (
+        <div className="totalPageNews">
+          <div className="contentNewsPage flex flex-wrap justify-center">
+            {news.items.map((thisNew: any) => {
+              return (
+                <div>
+                  <NewsComponent news={thisNew} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
