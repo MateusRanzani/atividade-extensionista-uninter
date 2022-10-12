@@ -57,7 +57,7 @@ const SearchPage: NextPage = () => {
       </button>
       {messageError !== "" && <div>{messageError}</div>}
       {data.length > 0 &&
-        data.map((teacher) => (
+        data.map((teacher, keyId) => (
           <Link href={`/search/${teacher._id}`} key={teacher._id}>
             <h1 className="text-2xl">{teacher.name}</h1>
           </Link>

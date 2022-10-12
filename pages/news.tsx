@@ -21,9 +21,9 @@ const NewsPage = ({ news }: any) => {
       {session && (
         <div className="totalPageNews">
           <div className="contentNewsPage flex flex-wrap justify-center">
-            {news.items.map((thisNew: any) => {
+            {news.items.map((thisNew: any, keyId: any) => {
               return (
-                <div>
+                <div key={keyId}>
                   <NewsComponent news={thisNew} />
                 </div>
               );
