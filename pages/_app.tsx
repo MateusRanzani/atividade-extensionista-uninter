@@ -5,6 +5,7 @@ import NavBar from "../components/navBar";
 import "../styles/globals.css";
 import "../styles/index.css";
 import "../styles/news.css";
+import "../styles/events.css";
 import "../components/navBar/navBar.css"
 import "../styles/newsComponent.css"
 

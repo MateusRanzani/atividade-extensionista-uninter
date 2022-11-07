@@ -26,7 +26,7 @@ const NavBar: NextPage = (props) => {
           </div>
 
           <div className="mr-10">
-            <Link href="/search">
+            <Link href="/events">
               <a className="--button">EVENTOS</a>
             </Link>
           </div>
@@ -37,13 +37,12 @@ const NavBar: NextPage = (props) => {
           </div>
         </div>
         {!session && (
-          <div>
-            <Link href="/profile">
-              <a className="login--button" onClick={() => signIn("auth0")}>
-                LOGIN
-              </a>
-            </Link>
-          </div>
+         <button
+         className="border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200"
+         onClick={() => signIn('auth0')}
+       >
+         Login
+       </button>
         )}
         {session && (
           <div>
