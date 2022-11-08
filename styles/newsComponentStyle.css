@@ -1,14 +1,14 @@
 .cardOfNew {
-  width: 23rem;
-  height: 15.5rem;
-  margin: 0.5rem;
+  width: 90vw;
+  height: auto;
+  min-height: 8rem;
+  max-height: 15rem;
+  margin: 0.8rem;
   padding: 0.5rem;
-  border-radius: 10px;
-
-  background-color: rgba(128, 128, 128, 0.1);
 
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
+  border-radius: 20px;
   cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
 .titleOfNew {
   height: auto;
 
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 500;
 
   display: -webkit-box;
@@ -35,5 +35,5 @@
   margin-bottom: 0.2rem;
   border-radius: 0.5rem;
 
-  color: #ff9900;
+  color: #4863F7;
 }

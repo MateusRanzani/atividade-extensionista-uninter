@@ -7,7 +7,7 @@ import "../styles/index.css";
 import "../styles/news.css";
 import "../styles/events.css";
 import "../components/navBar/navBar.css"
-import "../styles/newsComponent.css"
+import "../styles/newsComponentStyle.css"
 
 function MyApp({
   Component,
