@@ -2,10 +2,43 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import api from "../../utils/api";
+
+interface Teacher {
+  _id: string;
+  name: string;
+  email: string;
+  cellphone: string;
+  teacher: boolean;
+  coins: number;
+  courses: string[];
+  available_hours: Record<string, number[]>;
+  available_locations: string[];
+  reviews: Record<string, unknown>[];
+  appointments: Record<string, unknown>[];
+}
 
 const NavBar: NextPage = (props) => {
   const { data: session, status } = useSession();
+  let [user, setUser] = useState<Teacher>({} as Teacher);
+
+  const fetchUser = () => {
+    api(`/api/user/${session?.user?.email}`)
+      .then((response) => {
+        const teachers: Teacher = response.data;
+        user = teachers;
+        setUser(user);
+
+      })
+      .catch((error) => {});
+  };
+
+  useEffect(() => {
+    if (session !== undefined) {
+      fetchUser();
+    }
+  }, [session]);
 
   return (
     <nav>
@@ -50,12 +83,20 @@ const NavBar: NextPage = (props) => {
               </button>
             )}
             {session && (
-              <div>
+              <div className="flex items-center">
+                <div className="flex items-center text-sm mr-8 text-[#a9a9a9]">
+                  <p>Seja bem vindo &nbsp;</p>
+                  <p>
+                  {user.name}
+                  </p>
+                </div>
+
                 <Link href="/profile">
                   <a className="text-[#DF3A3A]" onClick={() => signOut()}>
                     SAIR
                   </a>
                 </Link>
+                
               </div>
             )}
           </div>

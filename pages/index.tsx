@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import api from "../utils/api";
 
 interface Teacher {
@@ -32,20 +32,27 @@ const Home: NextPage = () => {
   };
 
   const fetchUser = () => {
-    if (session !== undefined) {
-      api(`/api/user/${session?.user?.email}`)
-        .then((response) => {
-          const teachers: Teacher = response.data;
-          user = teachers;
-          setUser(user);
-        })
-        .catch((error) => {});
-    }
+    api(`/api/user/${session?.user?.email}`)
+      .then((response) => {
+        const teachers: Teacher = response.data;
+        user = teachers;
+        setUser(user);
+      })
+      .catch((error) => {});
+
+
+    
   };
+
+  useCallback(() => {
+    if (session !== undefined) {
+      fetchUser();
+    }
+  }, [session]);
 
   return (
     <div className="contentAllPage">
-      <div className="headerHomePage" >
+      <div className="headerHomePage">
         <div className="header-homePage">
           <p className="home--title">Olá! Seja bem vindo!</p>
           <p className="home--subtitle my-4">

@@ -1,5 +1,6 @@
 .cardOfNew {
   width: 90vw;
+  max-width: 1500px;
   height: auto;
   min-height: 8rem;
   max-height: 15rem;
