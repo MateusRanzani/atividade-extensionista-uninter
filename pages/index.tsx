@@ -54,12 +54,6 @@ const Home: NextPage = () => {
             <br />
             Você é um deles?
           </p>
-          <button
-         className="border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200"
-         onClick={() => signIn('auth0')}
-       >
-         Login
-       </button>
           <div>
             <br />
             <button
