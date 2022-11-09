@@ -1,12 +1,17 @@
-
 .containerPageProfile {
-    width: 100%;
-    height: calc(100vh - 70px);
-    max-height: 1090px;
+  width: 100%;
+  height: calc(100vh - 90px);
+  max-height: 1090px;
 }
 
 .profileCard {
-    width: 500px;
-    height: 600px;
-    background-color: red;
+  width: 30vw;
+  height: 70vh;
+  max-width: 500px;
+  max-height: 600px;
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  padding: 20px;
+
+  word-wrap: break-word;
 }

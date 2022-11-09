@@ -1,4 +1,5 @@
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import NewsComponent from "../components/newsComponent";
@@ -33,7 +34,7 @@ const Profile = ({ news }: any) => {
     if (session !== undefined) {
       fetchUser();
     }
-    console.log(user)
+    console.log(user);
   }, [session]);
 
   return (
@@ -41,22 +42,36 @@ const Profile = ({ news }: any) => {
       <div className="componentPage">
         <div className="containerPageProfile flex justify-center items-center">
           {!isEmptyObj(user) ? (
-            <div className="profileCard flex">
-              {user.name}
-              <br />
-              {user.email}
-              <br />
-              {user.cellphone}
+            <div className="profileCard">
+              <div className="flex justify-center w-full mb-8">
+                <Image
+                  loader={myLoader}
+                  src="me.png"
+                  alt="Picture of the author"
+                  width={200}
+                  height={200}
+                />
+              </div>
+
+              <p>Nome: {user.name}</p>
+              <p>Email: {user.email}</p>
+              <p>Tel:{user.cellphone}</p>
+              <div className="flex">
+                <p>{user.city}, &nbsp;</p>
+                <p>{user.country}</p>
+              </div>
             </div>
-          ): (
-            <div>
-              Finalizar Cadastro de usuario
-            </div>
+          ) : (
+            <div>Finalizar Cadastro de usuario</div>
           )}
         </div>
       </div>
     </>
   );
+};
+
+const myLoader = ({ src, width, quality }: any) => {
+  return `https://img.freepik.com/free-icon/user_318-804690.jpg?w=360`;
 };
 
 export default Profile;
