@@ -7,7 +7,8 @@ import "../styles/index.css";
 import "../styles/news.css";
 import "../styles/events.css";
 import "../components/navBar/navBar.css"
-import "../styles/newsComponentStyle.css"
+import "../styles/newsComponent.css"
+import "../styles/profile.css"
 
 function MyApp({
   Component,
@@ -18,7 +19,7 @@ function MyApp({
   return (
     <SessionProvider session={pageProps.session}>
        <NavBar/>
-      <Component {...pageProps} />
+      <Component {...pageProps} className="componentPage"/>
     </SessionProvider>
   );
 }

@@ -1,71 +1,45 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import ComplaintsInterface from "../../interfaces/ComplaintsInterface";
+import EventsInterface from "../../interfaces/EventsInterface";
+import UserInterface from "../../interfaces/UserInterface";
 import connect from "../../utils/database";
 
 type ErrorResponseType = {
   error: string;
 };
 
-type SuccessResponseType = {
-  name: string;
-  email: string;
-  cellphone: string;
-  teacher: string;
-  coins: number;
-  courses: [];
-  available_hours: {};
-  available_locations: [];
-  reviews: [];
-  appointments: [];
-};
-
 export default async (
   req: NextApiRequest,
-  res: NextApiResponse<ErrorResponseType | SuccessResponseType>
+  res: NextApiResponse<ErrorResponseType | UserInterface>
 ): Promise<void> => {
   if (req.method === "POST") {
-    const {
-      name,
-      email,
-      cellphone,
-      teacher,
-      courses,
-      available_hours,
-      available_locations,
-    } = req.body;
+    const { _id, name, email, cellphone, city, country, events, complaints } =
+      req.body;
 
-    if (!teacher) {
-      if (!name || !email || !cellphone) {
-        res.status(400).json({ error: "Missing body parameter" });
-        return;
-      }
-    } else if (teacher) {
-      if (
-        !name ||
-        !email ||
-        !cellphone ||
-        !courses ||
-        !available_hours ||
-        !available_locations
-      ) {
-        res.status(400).json({ error: "Missing body parameter" });
-        return;
-      }
+    if (
+      !email ||
+      !name ||
+      !cellphone ||
+      !city ||
+      !country ||
+      !events ||
+      !complaints
+    ) {
+      res.status(400).json({ error: "Missing body parameter" });
+      return;
     }
 
     const { db } = await connect();
 
     const response = await db.collection("users").insertOne({
-      name,
       email,
+      name,
       cellphone,
-      teacher,
-      coins: 1,
-      courses: courses || [],
-      available_hours: available_hours || {},
-      available_locations: available_locations || [],
-      reviews: [],
-      appointments: [],
+      city,
+      country,
+      events,
+      complaints,
     });
 
     res.status(200).json(response.ops[0]);
