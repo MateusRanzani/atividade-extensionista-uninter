@@ -43,7 +43,6 @@ const Profile = ({ news }: any) => {
         <div className="containerPageProfile flex justify-center items-center">
           {!isEmptyObj(user) ? (
             <div className="profileCard text-center">
-              <div>
 
                 <div className="flex justify-center w-full mb-8">
                   <Image
@@ -64,7 +63,6 @@ const Profile = ({ news }: any) => {
                   <p>{user.country}</p>
                 </div>
                 
-              </div>
 
             </div>
           ) : (

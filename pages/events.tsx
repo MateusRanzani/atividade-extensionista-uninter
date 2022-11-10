@@ -45,9 +45,13 @@ const Events: NextPage = () => {
 
   return (
     <div className="totalPageNews">
-        <div className="contentNewsPage">
-          teste
+      <div className="contentNewsPage">
+        <div className="text-center w-full h-[50px] bg-[#04D361] text-[white] text-[35px] rounded-[30px]">
+          <b>EVENTOS</b>
         </div>
+
+       
+      </div>
     </div>
   );
 };
