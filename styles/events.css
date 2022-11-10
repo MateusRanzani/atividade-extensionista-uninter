@@ -7,9 +7,8 @@
     padding: 1rem;
   }
 
-  .contentNewsPage {
+  .contentNewsPageEvent {
     margin-top: 62px;
-    display: flex;
     height: 100%;
   }
 }
