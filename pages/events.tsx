@@ -44,6 +44,22 @@ const Events: NextPage = () => {
       .catch((error) => {});
   };
 
+  const countOfMembers = (event: EventsInterface) => {
+    let number = 0
+
+    event.members.forEach(() => {
+      number ++
+    })
+
+    if (number === 1) {
+      return `${number} pessoa participa desse evento`
+
+    } else {
+      return `${number} pessoas participam desse evento`
+
+    }
+  }
+
   const isEmptyObj = (obj: any) => {
     for (var prop in obj) {
       if (obj.hasOwnProperty(prop)) {
@@ -65,11 +81,28 @@ const Events: NextPage = () => {
           <b>EVENTOS</b>
         </div>
 
-        {allEvents.map((events) => (
-          <div className="w-full mt-4 h-[250px] bg-[orange] text-[white] text-[35px] rounded-[30px]">
-            {events.description}
-          </div>
-        ))}
+        <div className="mt-10 ">
+          {allEvents.map((events) => (
+            <div className="w-full p-3 mt-10 h-[250px] bg-[url('https://images5.alphacoders.com/568/thumb-1920-568879.jpg')]  text-[35px] rounded-[30px] relative">
+              <div className="max-w-[50%] font-bold p-2 truncate bg-[#FF9900] text-[white] text-[23px] rounded-[30px] absolute top-[-20px]">
+                {events.event_name}
+              </div>
+
+              <div className="w-[50%]  h-[70%] bg-[white]/[0.5]  p-1 absolute bottom-[20px] right-[20px] rounded-[30px] text-[18px]">
+                <div className="text-center font-semibold">DESCRIÇÃO</div>
+                <div className="bg-[white]/[0.5]  p-2 rounded-[25px] text-[16px] max-h-[50%] overflow-auto">
+                  {events.description}
+                </div>
+               
+                <div className="text-center font-semibold">Data</div>
+                <div className="text-center text-[16px]">{events.date}
+                <br />
+                {countOfMembers(events)}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

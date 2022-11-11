@@ -10,6 +10,7 @@
 
   .contentNewsPage {
     display: flex;
+    margin-top: 62px;
     height: 100%;
   }
   
