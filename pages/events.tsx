@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
+import ReactTooltip from "react-tooltip";
+import Modal from "react-modal";
 import EventsInterface from "../interfaces/EventsInterface";
 import api from "../utils/api";
 
@@ -22,6 +24,7 @@ const Events: NextPage = () => {
   let [user, setUser] = useState<Teacher>({} as Teacher);
   let [allEvents, setAllEvents] = useState<EventsInterface[]>([]);
   let [enterTheEvent, setEnterTheEvent] = useState(false);
+  let [modalIsOpen, setIsOpen] = useState(false);
   const { data: session, status } = useSession();
 
   const fetchUser = () => {
@@ -69,6 +72,10 @@ const Events: NextPage = () => {
     return true;
   };
 
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   useEffect(() => {
     getAllEvents();
   }, []);
@@ -76,8 +83,32 @@ const Events: NextPage = () => {
   return (
     <div className="totalPageNews">
       <div className="contentNewsPageEvent">
-        <div className="text-center w-full h-[50px] bg-[#04D361] text-[white] text-[35px] rounded-[30px]">
+        <div className="text-center relative w-full h-[50px] bg-[#04D361] text-[white] text-[35px] rounded-[30px]">
           <b>EVENTOS</b>
+
+          <button
+            data-tip="Criar um evento"
+            data-for="test"
+            data-place="left"
+            className="absolute  right-[20px] m-auto top-[0px] bottom-[0px] text-[10px] whitespace-nowrap"
+            onClick={() => setIsOpen((state) => true)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-6 h-6 "
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v12m6-6H6"
+              />
+            </svg>
+          </button>
+          <ReactTooltip id="test">{}</ReactTooltip>
         </div>
 
         <div className="mt-10 ">
@@ -87,9 +118,7 @@ const Events: NextPage = () => {
                 {events.event_name}
               </div>
 
-              <div
-                className="   h-[15%] bg-[white]/[0.5]  p-1 absolute  right-[20px] rounded-[30px] text-[18px]"
-              >
+              <div className="   h-[15%] bg-[white]/[0.5]  p-1 absolute  right-[20px] rounded-[30px] text-[18px]">
                 {!enterTheEvent ? (
                   <button
                     className="flex whitespace-nowrap border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200  absolute  right-[20px]"
@@ -152,6 +181,14 @@ const Events: NextPage = () => {
           ))}
         </div>
       </div>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+      >
+        <div>I am a modal</div>
+      </Modal>
     </div>
   );
 };
