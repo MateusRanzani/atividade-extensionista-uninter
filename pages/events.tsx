@@ -88,13 +88,11 @@ const Events: NextPage = () => {
               </div>
 
               <div
-                className={`${
-                  enterTheEvent ? "w-[17%]" : "w-[20%]"
-                }   h-[15%] bg-[white]/[0.5]  p-1 absolute  right-[20px] rounded-[30px] text-[18px]`}
+                className="   h-[15%] bg-[white]/[0.5]  p-1 absolute  right-[20px] rounded-[30px] text-[18px]"
               >
                 {!enterTheEvent ? (
                   <button
-                    className="flex border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200  absolute  right-[20px]"
+                    className="flex whitespace-nowrap border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200  absolute  right-[20px]"
                     onClick={() => setEnterTheEvent((state) => true)}
                   >
                     <svg
@@ -115,7 +113,7 @@ const Events: NextPage = () => {
                   </button>
                 ) : (
                   <button
-                    className="flex border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200  absolute  right-[20px]"
+                    className="flex whitespace-nowrap border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200  absolute  right-[20px]"
                     onClick={() => setEnterTheEvent((state) => false)}
                   >
                     <svg

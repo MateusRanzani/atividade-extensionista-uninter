@@ -50,6 +50,13 @@ const NavBar: NextPage = (props) => {
                 <a className="--button">EVENTOS</a>
               </Link>
             </div>
+            {session && (
+              <div className="mr-10">
+                <Link href="/complaints">
+                  <a className="--button">DENÚNCIAS</a>
+                </Link>
+              </div>
+            )}
             <div className="mr-10">
               <Link href="/news">
                 <a className="--button">NOTÍCIAS</a>
