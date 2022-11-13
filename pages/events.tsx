@@ -21,6 +21,7 @@ interface Teacher {
 const Events: NextPage = () => {
   let [user, setUser] = useState<Teacher>({} as Teacher);
   let [allEvents, setAllEvents] = useState<EventsInterface[]>([]);
+  let [enterTheEvent, setEnterTheEvent] = useState(false);
   const { data: session, status } = useSession();
 
   const fetchUser = () => {
@@ -86,27 +87,54 @@ const Events: NextPage = () => {
                 {events.event_name}
               </div>
 
-              <div className="w-[40%]  h-[15%] bg-[white]/[0.5]  p-1 absolute  right-[20px] rounded-[30px] text-[18px]">
-                <button
-                  className="flex border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200"
-                  onClick={() => console.log("participar")}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6  mr-1"
+              <div
+                className={`${
+                  enterTheEvent ? "w-[17%]" : "w-[20%]"
+                }   h-[15%] bg-[white]/[0.5]  p-1 absolute  right-[20px] rounded-[30px] text-[18px]`}
+              >
+                {!enterTheEvent ? (
+                  <button
+                    className="flex border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200  absolute  right-[20px]"
+                    onClick={() => setEnterTheEvent((state) => true)}
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
-                    />
-                  </svg>
-                  Participar do Evento
-                </button>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6  mr-1 "
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                      />
+                    </svg>
+                    Participar do Evento
+                  </button>
+                ) : (
+                  <button
+                    className="flex border-l-2 border-2 px-4 rounded-lg hover:bg-gray-400 transition duration-200  absolute  right-[20px]"
+                    onClick={() => setEnterTheEvent((state) => false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6 mr-1"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                      />
+                    </svg>
+                    Sair do Evento
+                  </button>
+                )}
               </div>
 
               <div className="w-[50%]  h-[70%] bg-[white]/[0.5]  p-1 absolute bottom-[20px] right-[20px] rounded-[30px] text-[18px] overflow-auto">
