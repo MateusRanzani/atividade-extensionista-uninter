@@ -11,4 +11,23 @@
     margin-top: 62px;
     height: 100%;
   }
+
+  .Modal {
+    position: absolute;
+    top: 100px;
+    left: 10%;
+    right: 10%;
+    bottom: 100px;
+    background-color: white;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255, 0.6);
+  }
+
 }

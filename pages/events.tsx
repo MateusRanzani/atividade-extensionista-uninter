@@ -5,6 +5,7 @@ import ReactTooltip from "react-tooltip";
 import Modal from "react-modal";
 import EventsInterface from "../interfaces/EventsInterface";
 import api from "../utils/api";
+import axios from "axios";
 
 interface Teacher {
   _id: string;
@@ -25,6 +26,14 @@ const Events: NextPage = () => {
   let [allEvents, setAllEvents] = useState<EventsInterface[]>([]);
   let [enterTheEvent, setEnterTheEvent] = useState(false);
   let [modalIsOpen, setIsOpen] = useState(false);
+
+  let [eventName, setEventName] = useState("")
+  let [eventDescription, setEventDescription] = useState("")
+  let [cityEvent, setCityEvent] = useState("")
+  let [countryEvent, setCountryEvent] = useState("")
+  let [dateEvent, setDateEvent] = useState("")
+
+
   const { data: session, status } = useSession();
 
   const fetchUser = () => {
@@ -47,6 +56,24 @@ const Events: NextPage = () => {
       })
       .catch((error) => {});
   };
+
+  const createNewEvent = () => {
+    const body = {
+      event_name: eventName,
+      city:cityEvent,
+      country:countryEvent,
+      description:eventDescription,
+      responsible: user,
+      members: [],
+      date: dateEvent
+    }
+    axios.post(`/api/events`, body)
+      .then((res) => {
+        allEvents = res.data.data;
+        setAllEvents(allEvents);
+      })
+      .catch((error) => {});
+  }
 
   const countOfMembers = (event: EventsInterface) => {
     let number = 0;
@@ -77,6 +104,7 @@ const Events: NextPage = () => {
   }
 
   useEffect(() => {
+    fetchUser()
     getAllEvents();
   }, []);
 
@@ -186,8 +214,69 @@ const Events: NextPage = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
+        className="Modal "
+        overlayClassName="Overlay"
       >
-        <div>I am a modal</div>
+        <div className="w-[100%] h-[100%] p-10">
+          <div className="w-[100%] text-center  ">
+            <p> Nome do evento: </p>
+            <input
+              type="text"
+              className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEventName(state => e.target.value)}
+              value={eventName}
+            />
+          </div>
+
+          <div className="w-[100%] text-center   mt-2">
+            <p> Descrição do evento: </p>
+            <input
+              type="text"
+              className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEventDescription(state => e.target.value)}
+              value={eventDescription}
+            />
+          </div>
+
+          <div className="w-[100%] text-center   mt-2">
+            <p> Data: </p>
+            <input
+              type="text"
+              className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateEvent(state => e.target.value)}
+              value={dateEvent}
+            />
+          </div>
+
+          <div className="w-[100%] text-center   mt-2">
+            <p> Cidade: </p>
+            <input
+              type="text"
+              className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCityEvent(state => e.target.value)}
+              value={cityEvent}
+            />
+          </div>
+
+          <div className="w-[100%] text-center   mt-2">
+            <p> País: </p>
+            <input
+              type="text"
+              className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCountryEvent(state => e.target.value)}
+              value={countryEvent}
+            />
+          </div>
+
+          <div className="w-[100%] text-center   mt-2">
+            <button
+              className="border-l-2 border-2 px-4 rounded-lg bg-[#04D361] hover:opacity-80 transition duration-200"
+              onClick={() => console.log(eventName,eventDescription, cityEvent, countryEvent,  dateEvent )}
+            >
+              CRIAR EVENTO
+            </button>
+          </div>
+        </div>
       </Modal>
     </div>
   );
