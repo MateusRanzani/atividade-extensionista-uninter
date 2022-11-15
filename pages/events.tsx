@@ -27,12 +27,11 @@ const Events: NextPage = () => {
   let [enterTheEvent, setEnterTheEvent] = useState(false);
   let [modalIsOpen, setIsOpen] = useState(false);
 
-  let [eventName, setEventName] = useState("")
-  let [eventDescription, setEventDescription] = useState("")
-  let [cityEvent, setCityEvent] = useState("")
-  let [countryEvent, setCountryEvent] = useState("")
-  let [dateEvent, setDateEvent] = useState("")
-
+  let [eventName, setEventName] = useState("");
+  let [eventDescription, setEventDescription] = useState("");
+  let [cityEvent, setCityEvent] = useState("");
+  let [countryEvent, setCountryEvent] = useState("");
+  let [dateEvent, setDateEvent] = useState("");
 
   const { data: session, status } = useSession();
 
@@ -60,22 +59,24 @@ const Events: NextPage = () => {
   const createNewEvent = () => {
     const body = {
       event_name: eventName,
-      city:cityEvent,
-      country:countryEvent,
-      description:eventDescription,
+      city: cityEvent,
+      country: countryEvent,
+      description: eventDescription,
       responsible: user,
       members: [],
-      date: dateEvent
-    }
-    axios.post(`/api/events`, body)
+      date: dateEvent,
+    };
+    axios
+      .post(`/api/events`, body)
       .then((res) => {
-        allEvents = res.data.data;
+        allEvents.push(res.data);
         setAllEvents(allEvents);
+        closeModal();
       })
       .catch((error) => {
-        console.log(error, "ERROR")
+        console.log(error, "ERROR");
       });
-  }
+  };
 
   const countOfMembers = (event: EventsInterface) => {
     let number = 0;
@@ -106,7 +107,7 @@ const Events: NextPage = () => {
   }
 
   useEffect(() => {
-    fetchUser()
+    fetchUser();
     getAllEvents();
   }, []);
 
@@ -225,7 +226,9 @@ const Events: NextPage = () => {
             <input
               type="text"
               className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEventName(state => e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEventName((state) => e.target.value)
+              }
               value={eventName}
             />
           </div>
@@ -235,7 +238,9 @@ const Events: NextPage = () => {
             <input
               type="text"
               className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEventDescription(state => e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEventDescription((state) => e.target.value)
+              }
               value={eventDescription}
             />
           </div>
@@ -245,7 +250,9 @@ const Events: NextPage = () => {
             <input
               type="text"
               className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateEvent(state => e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setDateEvent((state) => e.target.value)
+              }
               value={dateEvent}
             />
           </div>
@@ -255,7 +262,9 @@ const Events: NextPage = () => {
             <input
               type="text"
               className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCityEvent(state => e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setCityEvent((state) => e.target.value)
+              }
               value={cityEvent}
             />
           </div>
@@ -265,7 +274,9 @@ const Events: NextPage = () => {
             <input
               type="text"
               className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCountryEvent(state => e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setCountryEvent((state) => e.target.value)
+              }
               value={countryEvent}
             />
           </div>
