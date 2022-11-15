@@ -238,6 +238,18 @@ const Complaints: NextPage = () => {
           </div>
 
           <div className="w-[100%] text-center   mt-2">
+            <p> Tipo: </p>
+            <input
+              type="text"
+              className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setTypeComplaint((state) => e.target.value)
+              }
+              value={typeComplaint}
+            />
+          </div>
+
+          <div className="w-[100%] text-center   mt-2">
             <p> Descrição do evento: </p>
             <input
               type="text"
