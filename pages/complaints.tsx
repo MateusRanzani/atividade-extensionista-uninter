@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import EventsInterface from "../interfaces/EventsInterface";
 import api from "../utils/api";
 import axios from "axios";
+import ComplaintsInterface from "../interfaces/ComplaintsInterface";
 
 interface Teacher {
   _id: string;
@@ -21,9 +22,9 @@ interface Teacher {
   appointments: Record<string, unknown>[];
 }
 
-const Events: NextPage = () => {
+const Complaints: NextPage = () => {
   let [user, setUser] = useState<Teacher>({} as Teacher);
-  let [allEvents, setAllEvents] = useState<EventsInterface[]>([]);
+  let [allComplaints, setAllComplaints] = useState<ComplaintsInterface[]>([]);
   let [enterTheEvent, setEnterTheEvent] = useState(false);
   let [modalIsOpen, setIsOpen] = useState(false);
 
@@ -32,6 +33,7 @@ const Events: NextPage = () => {
   let [cityEvent, setCityEvent] = useState("");
   let [countryEvent, setCountryEvent] = useState("");
   let [dateEvent, setDateEvent] = useState("");
+  let [typeComplaint, setTypeComplaint] = useState("")
 
   const { data: session, status } = useSession();
 
@@ -50,27 +52,29 @@ const Events: NextPage = () => {
   const getAllComplaints = () => {
     api(`/api/getAllComplaints`)
       .then((res) => {
-        allEvents = res.data.data;
-        setAllEvents(allEvents);
+        allComplaints = res.data.data;
+        setAllComplaints(allComplaints);
       })
       .catch((error) => {});
   };
 
-  const createNewEvent = () => {
+  const createNewComplaint = () => {
     const body = {
-      event_name: eventName,
+      complaint_name: eventName,
+      responsible: user,
+      type: typeComplaint,
+      description: eventDescription,
       city: cityEvent,
       country: countryEvent,
-      description: eventDescription,
-      responsible: user,
-      members: [],
       date: dateEvent,
+
+
     };
     axios
-      .post(`/api/events`, body)
+      .post(`/api/complaints`, body)
       .then((res) => {
-        allEvents.push(res.data);
-        setAllEvents(allEvents);
+        allComplaints.push(res.data);
+        setAllComplaints(allComplaints);
         closeModal();
       })
       .catch((error) => {
@@ -143,10 +147,10 @@ const Events: NextPage = () => {
         </div>
 
         <div className="mt-10 ">
-          {allEvents.map((events) => (
+          {allComplaints.map((complaints) => (
             <div className="w-full p-3 mt-10 h-[250px] bg-[url('https://images5.alphacoders.com/568/thumb-1920-568879.jpg')]  text-[35px] rounded-[30px] relative">
               <div className="max-w-[50%] font-bold p-2 truncate bg-[#FF9900] text-[white] text-[23px] rounded-[30px] absolute top-[-20px]">
-                {events.event_name}
+                {complaints.complaint_name}
               </div>
 
               <div className="   h-[15%] bg-[white]/[0.5]  p-1 absolute  right-[20px] rounded-[30px] text-[18px]">
@@ -198,12 +202,12 @@ const Events: NextPage = () => {
               <div className="w-[50%]  h-[70%] bg-[white]/[0.5]  p-1 absolute bottom-[20px] right-[20px] rounded-[30px] text-[18px] overflow-auto">
                 <div className="text-center font-semibold">DESCRIÇÃO</div>
                 <div className="bg-[white]/[0.5]  p-2 rounded-[25px] text-[16px] max-h-[50%] overflow-auto">
-                  {events.description}
+                  {complaints.description}
                 </div>
 
                 <div className="text-center font-semibold">Data</div>
                 <div className="text-center text-[16px]">
-                  {events.date}
+                  {complaints.date}
                   <br />
                  
                 </div>
@@ -284,7 +288,7 @@ const Events: NextPage = () => {
           <div className="w-[100%] text-center   mt-2">
             <button
               className="border-l-2 border-2 px-4 rounded-lg bg-[#04D361] hover:opacity-80 transition duration-200"
-              onClick={() => createNewEvent()}
+              onClick={() => createNewComplaint()}
             >
               CRIAR EVENTO
             </button>
@@ -295,4 +299,4 @@ const Events: NextPage = () => {
   );
 };
 
-export default Events;
+export default Complaints;

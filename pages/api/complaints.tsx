@@ -14,7 +14,7 @@ export default async (
   res: NextApiResponse<ErrorResponseType | UserInterface>
 ): Promise<void> => {
   if (req.method === "POST") {
-    const { _id, responsible, type, description, city, country, date } =
+    const { _id, complaint_name, responsible, type, description, city, country, date } =
       req.body;
 
     if (!responsible || !type || !description || !city || !country || !date) {
@@ -25,6 +25,7 @@ export default async (
     const { db } = await connect();
 
     const response = await db.collection("complaints").insertOne({
+      complaint_name,
       responsible,
       type,
       description,
