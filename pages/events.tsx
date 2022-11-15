@@ -72,7 +72,9 @@ const Events: NextPage = () => {
         allEvents = res.data.data;
         setAllEvents(allEvents);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error, "ERROR")
+      });
   }
 
   const countOfMembers = (event: EventsInterface) => {
@@ -271,7 +273,7 @@ const Events: NextPage = () => {
           <div className="w-[100%] text-center   mt-2">
             <button
               className="border-l-2 border-2 px-4 rounded-lg bg-[#04D361] hover:opacity-80 transition duration-200"
-              onClick={() => console.log(eventName,eventDescription, cityEvent, countryEvent,  dateEvent )}
+              onClick={() => createNewEvent()}
             >
               CRIAR EVENTO
             </button>
