@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { ObjectId } from "mongodb";
+import { Collection, ObjectID } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 import connect from "../../utils/database";
 
@@ -13,16 +13,15 @@ export default async (
 ): Promise<void> => {
   if (req.method === "GET") {
     const { db } = await connect();
-
-    const response = await db.collection("complaints").find({});
+    const response = await db.collection("events").find({});
     const data = await response.toArray();
 
     if (!response) {
-      res.status(400).json({ error: "Complaint not found" });
+      res.status(400).json({ error: "Events not found" });
       return;
     }
 
-    res.status(200).json({data });
+    res.status(200).json({ data });
     return;
   } else {
     res.status(400).json({ error: "Wrong request method" });
