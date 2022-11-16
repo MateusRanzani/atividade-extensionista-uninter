@@ -142,7 +142,7 @@ const Events: NextPage = () => {
           <ReactTooltip id="test">{}</ReactTooltip>
         </div>
 
-        <div className="mt-10 ">
+        <div className="mt-10 pb-5">
           {allEvents.map((events) => (
             <div className="w-full p-3 mt-10 h-[250px] bg-[url('https://images5.alphacoders.com/568/thumb-1920-568879.jpg')]  text-[35px] rounded-[30px] relative">
               <div className="max-w-[50%] font-bold p-2 truncate bg-[#04D361] text-[white] text-[23px] rounded-[30px] absolute top-[-20px]">

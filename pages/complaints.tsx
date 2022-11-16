@@ -33,7 +33,7 @@ const Complaints: NextPage = () => {
   let [cityEvent, setCityEvent] = useState("");
   let [countryEvent, setCountryEvent] = useState("");
   let [dateEvent, setDateEvent] = useState("");
-  let [typeComplaint, setTypeComplaint] = useState("")
+  let [typeComplaint, setTypeComplaint] = useState("");
 
   const { data: session, status } = useSession();
 
@@ -67,8 +67,6 @@ const Complaints: NextPage = () => {
       city: cityEvent,
       country: countryEvent,
       date: dateEvent,
-
-
     };
     axios
       .post(`/api/complaints`, body)
@@ -146,7 +144,7 @@ const Complaints: NextPage = () => {
           <ReactTooltip id="test">{}</ReactTooltip>
         </div>
 
-        <div className="mt-10 ">
+        <div className="mt-10 pb-5">
           {allComplaints.map((complaints) => (
             <div className="w-full p-3 mt-10 h-[250px] bg-[url('https://images5.alphacoders.com/568/thumb-1920-568879.jpg')]  text-[35px] rounded-[30px] relative">
               <div className="max-w-[50%] font-bold p-2 truncate bg-[#FF9900] text-[white] text-[23px] rounded-[30px] absolute top-[-20px]">
@@ -209,7 +207,6 @@ const Complaints: NextPage = () => {
                 <div className="text-center text-[16px]">
                   {complaints.date}
                   <br />
-                 
                 </div>
               </div>
             </div>
@@ -229,7 +226,7 @@ const Complaints: NextPage = () => {
             <p> Nome do evento: </p>
             <input
               type="text"
-              className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
+              className="w-[30%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEventName((state) => e.target.value)
               }
@@ -241,7 +238,7 @@ const Complaints: NextPage = () => {
             <p> Tipo: </p>
             <input
               type="text"
-              className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
+              className="w-[30%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setTypeComplaint((state) => e.target.value)
               }
@@ -253,7 +250,7 @@ const Complaints: NextPage = () => {
             <p> Descrição do evento: </p>
             <input
               type="text"
-              className="w-[30%] border-2 border-[#04D361] rounded-[5px] "
+              className="w-[30%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEventDescription((state) => e.target.value)
               }
@@ -265,7 +262,7 @@ const Complaints: NextPage = () => {
             <p> Data: </p>
             <input
               type="text"
-              className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
+              className="w-[15%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setDateEvent((state) => e.target.value)
               }
@@ -277,7 +274,7 @@ const Complaints: NextPage = () => {
             <p> Cidade: </p>
             <input
               type="text"
-              className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
+              className="w-[15%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setCityEvent((state) => e.target.value)
               }
@@ -289,7 +286,7 @@ const Complaints: NextPage = () => {
             <p> País: </p>
             <input
               type="text"
-              className="w-[15%] border-2 border-[#04D361] rounded-[5px] "
+              className="w-[15%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setCountryEvent((state) => e.target.value)
               }
@@ -299,7 +296,7 @@ const Complaints: NextPage = () => {
 
           <div className="w-[100%] text-center   mt-2">
             <button
-              className="border-l-2 border-2 px-4 rounded-lg bg-[#04D361] hover:opacity-80 transition duration-200"
+              className="border-l-2 border-2 px-4 rounded-lg bg-[#FF9900] hover:opacity-80 transition duration-200"
               onClick={() => createNewComplaint()}
             >
               CRIAR EVENTO

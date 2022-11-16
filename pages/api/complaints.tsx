@@ -14,8 +14,16 @@ export default async (
   res: NextApiResponse<ErrorResponseType | UserInterface>
 ): Promise<void> => {
   if (req.method === "POST") {
-    const { _id, complaint_name, responsible, type, description, city, country, date } =
-      req.body;
+    const {
+      _id,
+      complaint_name,
+      responsible,
+      type,
+      description,
+      city,
+      country,
+      date,
+    } = req.body;
 
     if (!responsible || !type || !description || !city || !country || !date) {
       res.status(400).json({ error: "Missing body parameter" });
@@ -33,7 +41,7 @@ export default async (
       country,
       date,
     });
-    
+
     res.status(200).json(response.ops[0]);
   } else {
     res.status(400).json({ error: "Wrong request method" });
