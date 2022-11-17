@@ -11,6 +11,7 @@ const options= {
       issuer: process.env.AUTH0_ISSUER
     }),
   ],
+  secret: process.env.NEXT_PUBLIC_SECRET
 }
 
 export default (req: NextApiRequest, res: NextApiResponse): Promise<void> => NextAuth(req, res, options)
