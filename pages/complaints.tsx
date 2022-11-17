@@ -120,7 +120,7 @@ const Complaints: NextPage = () => {
           <b>DENÚNCIAS</b>
 
           <button
-            data-tip="Criar um evento"
+            data-tip="Criar uma denúncia"
             data-for="test"
             data-place="left"
             className="absolute  right-[20px] m-auto top-[0px] bottom-[0px] text-[10px] whitespace-nowrap"
