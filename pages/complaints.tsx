@@ -288,7 +288,7 @@ const Complaints: NextPage = () => {
               type="text"
               className="w-[15%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setComplaintDescription((state) => e.target.value)
+                setCountryComplaint((state) => e.target.value)
               }
               value={countryComplaint}
             />
