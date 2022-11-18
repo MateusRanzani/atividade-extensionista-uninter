@@ -28,11 +28,11 @@ const Complaints: NextPage = () => {
   let [enterTheEvent, setEnterTheEvent] = useState(false);
   let [modalIsOpen, setIsOpen] = useState(false);
 
-  let [eventName, setEventName] = useState("");
-  let [eventDescription, setEventDescription] = useState("");
-  let [cityEvent, setCityEvent] = useState("");
-  let [countryEvent, setCountryEvent] = useState("");
-  let [dateEvent, setDateEvent] = useState("");
+  let [complaintName, setComplaintName] = useState("");
+  let [complaintDescription, setComplaintDescription] = useState("");
+  let [cityComplaint, setCityComplaint] = useState("");
+  let [countryComplaint, setCountryComplaint] = useState("");
+  let [dateComplaint, setDateComplaint] = useState("");
   let [typeComplaint, setTypeComplaint] = useState("");
 
   const { data: session, status } = useSession();
@@ -60,13 +60,13 @@ const Complaints: NextPage = () => {
 
   const createNewComplaint = () => {
     const body = {
-      complaint_name: eventName,
+      complaint_name: complaintName,
       responsible: user,
       type: typeComplaint,
-      description: eventDescription,
-      city: cityEvent,
-      country: countryEvent,
-      date: dateEvent,
+      description: complaintDescription,
+      city: cityComplaint,
+      country: countryComplaint,
+      date: typeComplaint,
     };
     axios
       .post(`/api/complaints`, body)
@@ -223,14 +223,14 @@ const Complaints: NextPage = () => {
       >
         <div className="w-[100%] h-[100%] p-10">
           <div className="w-[100%] text-center  ">
-            <p> Nome do evento: </p>
+            <p> Título da denúncia: </p>
             <input
               type="text"
               className="w-[30%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEventName((state) => e.target.value)
+                setComplaintName((state) => e.target.value)
               }
-              value={eventName}
+              value={complaintName}
             />
           </div>
 
@@ -247,14 +247,14 @@ const Complaints: NextPage = () => {
           </div>
 
           <div className="w-[100%] text-center   mt-2">
-            <p> Descrição do evento: </p>
+            <p> Descrição da denúncia: </p>
             <input
               type="text"
               className="w-[30%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEventDescription((state) => e.target.value)
+                setComplaintDescription((state) => e.target.value)
               }
-              value={eventDescription}
+              value={complaintDescription}
             />
           </div>
 
@@ -264,9 +264,9 @@ const Complaints: NextPage = () => {
               type="text"
               className="w-[15%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setDateEvent((state) => e.target.value)
+                setDateComplaint((state) => e.target.value)
               }
-              value={dateEvent}
+              value={dateComplaint}
             />
           </div>
 
@@ -276,9 +276,9 @@ const Complaints: NextPage = () => {
               type="text"
               className="w-[15%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setCityEvent((state) => e.target.value)
+                setCityComplaint((state) => e.target.value)
               }
-              value={cityEvent}
+              value={cityComplaint}
             />
           </div>
 
@@ -288,9 +288,9 @@ const Complaints: NextPage = () => {
               type="text"
               className="w-[15%] border-2 border-[#FF9900] rounded-[5px] "
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setCountryEvent((state) => e.target.value)
+                setComplaintDescription((state) => e.target.value)
               }
-              value={countryEvent}
+              value={countryComplaint}
             />
           </div>
 
