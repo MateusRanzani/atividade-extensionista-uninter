@@ -43,27 +43,24 @@ const Profile = ({ news }: any) => {
         <div className="containerPageProfile flex justify-center items-center">
           {!isEmptyObj(user) ? (
             <div className="profileCard text-center">
-
-                <div className="flex justify-center w-full mb-8">
-                  <Image
-                    loader={myLoader}
-                    src="me.png"
-                    alt="Picture of the author"
-                    width={200}
-                    height={200}
-                  />
-                </div>
-                <div className="">
-                  <p>Nome: {user.name}</p>
-                  <p>Email: {user.email}</p>
-                  <p>Tel:{user.cellphone}</p>
-                </div>
-                <div className="flex justify-center">
-                  <p>{user.city}, &nbsp;</p>
-                  <p>{user.country}</p>
-                </div>
-                
-
+              <div className="flex justify-center w-full mb-8">
+                <Image
+                  loader={myLoader}
+                  src="me.png"
+                  alt="Picture of the author"
+                  width={200}
+                  height={200}
+                />
+              </div>
+              <div className="">
+                <p>Nome: {user.name}</p>
+                <p>Email: {user.email}</p>
+                <p>Tel:{user.cellphone}</p>
+              </div>
+              <div className="flex justify-center">
+                <p>{user.city}, &nbsp;</p>
+                <p>{user.country}</p>
+              </div>
             </div>
           ) : (
             <div>Finalizar Cadastro de usuario</div>

@@ -39,9 +39,6 @@ const Home: NextPage = () => {
         setUser(user);
       })
       .catch((error) => {});
-
-
-    
   };
 
   useCallback(() => {
