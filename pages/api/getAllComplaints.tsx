@@ -22,7 +22,7 @@ export default async (
       return;
     }
 
-    res.status(200).json({data });
+    res.status(200).json({ data });
     return;
   } else {
     res.status(400).json({ error: "Wrong request method" });
