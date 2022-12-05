@@ -20,6 +20,7 @@ function MyApp({
   return (
     <SessionProvider session={pageProps.session}>
       <NavBar />
+      
       <Component {...pageProps} className="componentPage" />
     </SessionProvider>
   );
