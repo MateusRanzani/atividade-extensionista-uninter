@@ -12,7 +12,9 @@ const NewsPage = ({ news }: any) => {
           {news.items.map((thisNew: any, keyId: any) => {
             return (
               <div key={keyId}>
+
                 <NewsComponent news={thisNew} />
+                
               </div>
             );
           })}
