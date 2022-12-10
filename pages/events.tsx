@@ -21,6 +21,7 @@ interface Teacher {
   appointments: Record<string, unknown>[];
 }
 
+
 const Events: NextPage = () => {
   let [user, setUser] = useState<Teacher>({} as Teacher);
   let [allEvents, setAllEvents] = useState<EventsInterface[]>([]);
