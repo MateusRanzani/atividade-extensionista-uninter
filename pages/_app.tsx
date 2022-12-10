@@ -16,6 +16,7 @@ function MyApp({
 }: AppProps<{
   session: Session;
 }>) {
+  
   return (
     <SessionProvider session={pageProps.session}>
       <NavBar />
