@@ -17,6 +17,7 @@ function NewsComponent({ news }: any) {
             }}
           >
             <p className="titleOfNew">{news.titulo}</p>
+            
             <p className="newIntroduction">{news.introducao}</p>
           </div>
         </a>
