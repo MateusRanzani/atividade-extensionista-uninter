@@ -1,122 +1,88 @@
-@media only screen and (max-width: 699px) {
-  .headerHomePage {
-    height: calc(100vh);
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-    padding: 0 3rem;
-  }
+.footerHeader {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  position: relative;
+  justify-content: center;
+}
 
-  .header-homePage {
-    height: calc(100vh - 61.63px);
-    width: 100%;
-    font-size: 2rem;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-
-    justify-content: center;
-
-    /* background-color: red; */
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-
-  .home--title {
-    font-size: 3rem;
-  }
-
-  .home--subtitle {
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .projectInformation--index {
-    /* margin-top: 3rem; */
-    height: calc(100vh - 61.63px);
-    display: flex;
-  }
-
-  .informationLeftSide--index {
-    width: 50%;
-    height: 100%;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-  }
-
-  .informationRigthSide--index {
-    width: 50%;
-    height: 100%;
-
-    padding: 8rem;
-  }
-
-  .imageSvg {
-    display: relative;
-    width: 800px;
-  }
-
-  .my-img {
-    align-items: center;
-    height: 10rem;
-  }
-
-  .my-img-two {
-    align-items: center;
-    height: 8rem;
-  }
-
-  .svgBlobMiniature {
-    width: 250px;
-    position: absolute;
-    bottom: 0rem;
-    right: 4rem;
-  }
-
-  .my-img-blobMiniature {
-    align-items: center;
-    height: 8rem;
-  }
-
-  .informationLeftSide-two--index {
-    width: 50%;
-    height: 100%;
-
-    padding: 8rem;
-  }
-
-  .informationRigthSide-two--index {
-    width: 50%;
-    height: 100%;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-  }
-
-  .svgBlobMiniature-two {
-    width: 300px;
-    position: absolute;
-    bottom: 0rem;
-    left: 5rem;
-  }
-
-  .svgBlobMiniature--two {
-    width: 250px;
-    position: absolute;
-    top: 0rem;
-    right: 4rem;
+@media only screen and (max-width: 900px) {
+  * {
+    display: none;
   }
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 900px) {
+  .secondContainer {
+    width: 100%;
+    height: calc(100vh - 60px);
+    margin: 5rem 0;
+  }
+
+  .headerSecondContainer {
+    display: grid;
+    min-height: 50%;
+    grid-template-columns: 40% 60%;
+  }
+
+  .footerSecondContainer {
+    min-height: 50%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .informationRightSideContentOneImg {
+    width: 20rem;
+    max-width: 30vw;
+  }
+
+  .informationRightSideContentTwoImg_ {
+    width: 10rem;
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    display: inline-block;
+  }
+
+  .svgBlobMiniature--two {
+    width: 10rem;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+  }
+
+  .contentImagesBanner1 {
+    position: relative;
+    width: fit-content;
+  }
+
+  .informationLeftSideContentTwoImg {
+    width: 20rem;
+    max-width: 30vw;
+  }
+
+  .gridTemplateBanner1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .svgBlobMiniature {
+    width: 25%;
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+  }
+
+  .contentTextBanner1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5rem;
+  }
+
   .contentAllPage {
     max-width: 1300px;
     margin: auto;
@@ -124,7 +90,6 @@
 
   .headerHomePage {
     height: calc(100vh);
-    max-height: 720px;
     display: flex;
     flex-direction: column;
     padding: 0 3rem;
@@ -153,6 +118,11 @@
   .home--subtitle {
     text-align: center;
     font-size: 1rem;
+  }
+
+  .informationLeftSideContentOne {
+    height: fit-content;
+    display: inline-flex;
   }
 
   .projectInformation--index1 {
@@ -202,13 +172,6 @@
     height: 8rem;
   }
 
-  .svgBlobMiniature {
-    width: 250px;
-    position: absolute;
-    bottom: 0rem;
-    right: 4rem;
-  }
-
   .my-img-blobMiniature {
     align-items: center;
     height: 8rem;
@@ -237,12 +200,5 @@
     position: absolute;
     bottom: 0rem;
     left: 5rem;
-  }
-
-  .svgBlobMiniature--two {
-    width: 250px;
-    position: absolute;
-    top: 0rem;
-    right: 4rem;
   }
 }
