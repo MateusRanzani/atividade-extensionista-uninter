@@ -287,7 +287,9 @@ const Events: NextPage = () => {
       )}
       {!session && (
         <div className="totalPageNews">
-          <h3>Faça login para visualziar esta página.</h3>
+          <h3 style={{ marginTop: "67px" }}>
+            Faça login para visualziar esta página.
+          </h3>
         </div>
       )}
     </>
