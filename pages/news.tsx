@@ -8,16 +8,39 @@ const NewsPage = ({ news }: any) => {
   return (
     <>
       <div className="totalPageNews">
-        <div className="contentNewsPage flex flex-wrap justify-center">
-          {news.items.map((thisNew: any, keyId: any) => {
-            return (
-              <div key={keyId}>
-
-                <NewsComponent news={thisNew} />
-                
-              </div>
-            );
-          })}
+        <div className="subscript">
+          <div className="subAlingn">
+            <div
+              className="cicleSub"
+              style={{ backgroundColor: "rgba(4, 211, 97, 0.45)" }}
+            />
+            Notícia
+          </div>
+          <div className="subAlingn">
+            <div
+              className="cicleSub"
+              style={{ backgroundColor: "rgba(255, 153, 0, 0.45)" }}
+            />
+            Release
+          </div>
+          <div className="subAlingn">
+            <div
+              className="cicleSub"
+              style={{ backgroundColor: "rgba(255, 153, 0, 0.1)" }}
+            />
+            Outro
+          </div>
+        </div>
+        <div className="contentNewsPage ">
+          <div className="flex flex-wrap justify-center">
+            {news.items.map((thisNew: any, keyId: any) => {
+              return (
+                <div key={keyId}>
+                  <NewsComponent news={thisNew} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

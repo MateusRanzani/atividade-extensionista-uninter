@@ -1,4 +1,7 @@
 @media only screen and (max-width: 699px) {
+  * {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 700px) {
@@ -9,7 +12,28 @@
 
   .contentNewsPage {
     display: flex;
-    margin-top: 62px;
     height: 100%;
+  }
+  .subscript {
+    margin-top: 62px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cicleSub {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: red;
+    margin: 0.3rem;
+  }
+
+  .subAlingn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
   }
 }
